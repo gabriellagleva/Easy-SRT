@@ -1,6 +1,6 @@
 # **Easy SRT**
 
-A simple Python script to automatically generate SRT subtitle files from a video using the highly accurate FasterWhisper model.
+A simple Python script to automatically generate SRT subtitle files from a video using the FasterWhisper model.
 
 This program takes a video file, transcribes the audio, and formats the output into a standard .srt file. SubRip files (.srt) are a common way to embed closed captions on platforms like YouTube, Vimeo, or in media players like VLC. This makes your content more accessible and engaging.
 
