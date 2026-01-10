@@ -19,34 +19,57 @@ You can install FasterWhisper by following the instructions provided by SYSTRAN:
 
 ## **How to Use**
 
-Getting your subtitles is easy! Just follow these steps:
+Getting your subtitles is easy! Just run the script with command line arguments:
 
-1. Add Your Video: Place your video file (e.g., my_awesome_video.mp4) in the same directory as the Python script.
-2. Edit the Script: Open the script and modify the following variables:
-    * videoFileName: Change this to the exact name of your video file.
-    * model_size: You can choose from models like tiny, base, small, medium, large-v2, or large-v3. Larger models are more accurate but require more resources. large-v3 is recommended for the highest accuracy.
+### **Basic Usage**
 
-```
-videoFileName = "my_awesome_video.mp4" # <--- CHANGE THIS
-model_size = "large-v3" <--- OR THIS
+```bash
+python easy-srt.py <model_size> <video_file> [--device <cuda|cpu>]
 ```
 
-3. Select Your Device: The script is pre-configured to run on a GPU. If you want to run it on your CPU or change the compute type, simply comment out the active model line and uncomment the one you wish to use.
-Python
-```
-# Run on GPU with FP16 (fastest, for modern GPUs)
-model = WhisperModel(model_size, device="cuda", compute_type="float16")
+### **Arguments**
 
-# or run on GPU with INT8 (uses less VRAM)
-# model = WhisperModel(model_size, device="cuda", compute_type="int8_float16")
+- `model_size` (required): Choose from `tiny`, `base`, `small`, `medium`, `large-v2`, or `large-v3`. Larger models are more accurate but require more resources. `large-v3` is recommended for highest accuracy.
+- `video_file` (required): Path to your video file (can be relative or absolute path)
+- `--device` (optional): Choose `cuda` for GPU or `cpu` for CPU. Defaults to `cuda`.
 
-# or run on CPU with INT8
-# model = WhisperModel(model_size, device="cpu", compute_type="int8")
-```
-4. Run the Script: Open your terminal or command prompt in the project directory and run the script.
+### **Device & Compute Types**
 
+The script automatically selects the optimal compute type based on your device:
+- **CUDA (GPU)**: Uses `float16` for maximum speed and accuracy (requires CUDA-enabled GPU)
+- **CPU**: Uses `int8` for efficient processing on any computer
+
+### **Examples**
+
+1. **Run on GPU with large-v3 model (recommended):**
+```bash
+python easy-srt.py large-v3 my_video.mp4
 ```
-python your_script_name.py
+
+2. **Run on CPU with medium model:**
+```bash
+python easy-srt.py medium my_video.mp4 --device cpu
 ```
-5. Get Your File: Once completed, a new file named output.srt will appear in the directory. You're all set!
+
+3. **Process video from different folder:**
+```bash
+python easy-srt.py large-v3 C:\Videos\my_video.mp4
+```
+
+4. **Quick processing with smaller model:**
+```bash
+python easy-srt.py small my_video.mp4
+```
+
+### **Output**
+
+Once completed, a file named `output.srt` will be created in the same directory as the script. You can then use this subtitle file with your video on YouTube, Vimeo, VLC, or any media player that supports SRT files.
+
+### **Getting Help**
+
+
+To see all available options:
+```bash
+python easy-srt.py --help
+```
 
