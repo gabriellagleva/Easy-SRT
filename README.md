@@ -4,7 +4,7 @@ A simple Python script to automatically generate SRT subtitle files from a video
 
 This program takes a video file, transcribes the audio, and formats the output into a standard .srt file. SubRip files (.srt) are a common way to embed closed captions on platforms like YouTube, Vimeo, or in media players like VLC. This makes your content more accessible and engaging.
 
-A demonstration of the program can be seen ![here](https://www.youtube.com/watch?v=jIoNuMOXPPE), with it transcribing this interview of a park ranger in ![South Carolina, Desegregating Edisto State Park](https://dare.wisc.edu/audio/south-carolina-desegregating-edisto-state-park/) from the  
+A demonstration of the program can be seen ![here](https://www.youtube.com/watch?v=jIoNuMOXPPE), with it transcribing this interview of a park ranger in ![South Carolina, Desegregating Edisto State Park](https://dare.wisc.edu/audio/south-carolina-desegregating-edisto-state-park/)
 
 ## **Features**
 
