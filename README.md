@@ -75,3 +75,5 @@ To see all available options:
 python easy-srt.py --help
 ```
 
+
+If you have any questions or concerns, feel free to reach out to me at gabelagleva@gmail.com
